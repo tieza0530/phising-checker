@@ -1,0 +1,12 @@
+{
+  "whitelist": [
+    "boss@company.com",
+    "support@company.com"
+  ],
+  "blacklist": [
+    "phishing@hack.com",
+    "spam@evil.com",
+    "quan171104@gmail.com",
+    "sonnthe171998@fpt.edu.vn"
+  ]
+}

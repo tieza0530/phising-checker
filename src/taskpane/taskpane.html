@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Phishing Checker</title>
-  <link rel="stylesheet" href="taskpane.css">
-  <script src="taskpane.js"></script>
-</head>
-<body>
-  <h3>Phishing Checker</h3>
-  <div id="result">Checking sender...</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Phishing Checker Taskpane</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script src="./taskpane.js" defer></script>
+    <style> body{font-family: Arial; padding:12px;} .warning{padding:8px;background:#fff3cd;color:#856404;} </style>
+  </head>
+  <body>
+    <h2>Thông tin Email</h2>
+    <div><b>Người gửi:</b> <span id="sender">Đang tải...</span></div>
+    <div><b>Tiêu đề:</b> <span id="subject">Đang tải...</span></div>
+    <div><b>Nội dung (preview):</b><div id="bodyPreview">Đang tải...</div></div>
+    <div style="margin-top:8px"><b>Kết quả kiểm tra:</b> <span id="result">Đang kiểm tra...</span></div>
+  </body>
 </html>

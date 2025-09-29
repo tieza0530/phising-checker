@@ -1,35 +1,16 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
+// commands.js
+Office.onReady(() => console.log("Commands ready"));
 
-/* global Office */
-
-Office.onReady(() => {
-  // If needed, Office.js is ready to be called.
-});
-
-/**
- * Shows a notification when the add-in command is executed.
- * @param event {Office.AddinCommands.Event}
- */
-function action(event) {
-  const message = {
-    type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
-    message: "Performed action.",
-    icon: "Icon.80x80",
-    persistent: true,
-  };
-
-  // Show a notification message.
-  Office.context.mailbox.item.notificationMessages.replaceAsync(
-    "ActionPerformanceNotification",
-    message
-  );
-
-  // Be sure to indicate when the add-in command function is complete.
+function onMessageRead(event) {
+  console.log("onMessageRead fired");
+  try {
+    // show taskpane (nếu muốn)
+    Office.addin.showAsTaskpane();
+  } catch (err) {
+    console.warn("Không thể mở taskpane tự động:", err);
+  }
   event.completed();
 }
 
-// Register the function with Office.
-Office.actions.associate("action", action);
+// export (nếu cần bundler)
+if (typeof module !== "undefined") module.exports = { onMessageRead };
